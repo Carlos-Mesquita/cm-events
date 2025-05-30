@@ -1,0 +1,88 @@
+[project]
+name = "cm-events"
+version = "0.1.0"
+description = "Minimal async pub/sub package with decorators and state machines"
+authors = [
+    {name = "Carlos-Mesquita", email = "cmesquita1999@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic (>=2.11.5,<3.0.0)",
+]
+
+
+[project.urls]
+Homepage = "https://github.com/Carlos-Mesquita/cm-events"
+Repository = "https://github.com/Carlos-Mesquita/cm-events"
+Issues = "https://github.com/Carlos-Mesquita/cm-events/issues"
+
+
+[tool.poetry]
+packages = [{include = "events"}]
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.11.11"
+pytest = "^8.3.5"
+pytest-cov = "^6.1.1"
+mypy = "^1.15.0"
+pre-commit = "^4.2.0"
+pytest-asyncio = "^1.0.0"
+
+[tool.mypy]
+strict = true
+disable_error_code = [
+    "type-arg",
+    "attr-defined"
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["events"]
+
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = [
+    "--strict-config",
+    "--strict-markers",
+    "--cov=events",
+    "--cov-report=html",
+    "--cov-report=term-missing"
+]
+xfail_strict = true
+asyncio_default_fixture_loop_scope = "function"
+
+
+[tool.coverage.run]
+source = ["events"]
+omit = [
+    "tests/*",
+]
+
+[tool.coverage.report]
+show_missing = true
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
