@@ -10,7 +10,8 @@ requires-python = ">=3.11"
 dependencies = [
     "pydantic (>=2.11.5,<3.0.0)",
 ]
-
+license = "MIT"
+license-files = ["LICENSE"]
 
 [project.urls]
 Homepage = "https://github.com/Carlos-Mesquita/cm-events"

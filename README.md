@@ -1,5 +1,11 @@
 # cm-events
 
+![CI](https://github.com/Carlos-Mesquita/cm-events/workflows/Tests/badge.svg)
+[![codecov](https://codecov.io/gh/Carlos-Mesquita/cm-events/graph/badge.svg)](https://codecov.io/gh/Carlos-Mesquita/cm-events)
+[![PyPI version](https://badge.fury.io/py/cm-events.svg)](https://badge.fury.io/py/cm-events)
+[![Python versions](https://img.shields.io/pypi/pyversions/cm-events.svg)](https://pypi.org/project/cm-events/)
+[![License](https://img.shields.io/github/license/Carlos-Mesquita/cm-events.svg)](https://github.com/Carlos-Mesquita/cm-events/blob/main/LICENSE)
+
 Simple async pub/sub package I made for an assignment of an Embedded Systems curricular unit.
 
 ## What it does
