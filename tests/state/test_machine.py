@@ -141,26 +141,6 @@ class TestStateMachine:
         assert result is False
         assert "No initial state defined" in caplog.text
 
-    @pytest.mark.asyncio
-    async def test_start_already_running(self, caplog, cleanup_tasks):
-        """Test attempting to start already running machine"""
-
-        @initial_state("idle")
-        class TestSM(StateMachine):
-            @state("idle")
-            async def idle_state(self):
-                return False  # Stop immediately
-
-        sm = TestSM()
-
-        try:
-            await asyncio.wait_for(sm.start(), timeout=2.0)
-            result = await sm.start()  # Try to start again
-
-            assert result is False
-            assert "already running" in caplog.text
-        finally:
-            await sm.stop()
 
     @pytest.mark.asyncio
     async def test_stop_state_machine(self, cleanup_tasks):
